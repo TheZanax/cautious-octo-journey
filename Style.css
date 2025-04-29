@@ -266,71 +266,88 @@ footer {
 
 /* Responsive supongo??*/
 @media (max-width: 768px) {
-  .mapa-contenido {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+  html, body {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
   }
 
-  .contenedor-mapa {
-    flex: 1 1 60%;
-    max-width: 600px;
-  }
-  
-  .informacion {
-    flex: 1 1 35%;
-    max-width: 400px;
-    width: 100%;
-  }
   header {
     height: auto;
-    padding: 10px;
+    padding: 8px 5px;
   }
 
   h1 {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 22px;
+    margin: 5px 0;
   }
 
   nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 6px;
+    padding: 10px;
   }
 
   .button-85 {
-    font-size: 12px;
-    padding: 0.4em 1.2em;
-    margin: 4px;
+    font-size: 13px;
+    padding: 0.5em 1.5em;
+    margin: 5px;
   }
 
   .mapa-contenido {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0;
   }
 
   #mapa {
     width: 100%;
-    margin-left: 0;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   .informacion {
-    width: 90%;
-    margin-left: 0;
-    margin-top: 10px;
-    font-size: 0.85rem;
+    width: 95%;
+    margin: 20px auto;
+    font-size: 1rem;
+    padding: 16px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+
+  .informacion table {
+    font-size: 0.95rem;
   }
 
   footer {
-    font-size: 12px;
-    padding: 8px;
+    font-size: 13px;
+    padding: 12px;
+    margin-top: 30px;
   }
 
   .punto {
-    margin-left: 0;
-    transform: scale(0.9);
+    width: 20px;
+    height: 20px;
+    transform: scale(1.1);
   }
+}
+
+
+html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
 }
