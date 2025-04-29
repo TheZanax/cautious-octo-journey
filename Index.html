@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Interactivo Formosa</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Mapa Interactivo Formosa</h1>
+    <nav>
+      <button class="button-85" onclick="mostrarCapa('localidades')">Localidades</button>
+      <button class="button-85" onclick="mostrarCapa('climas')">Climas</button>
+      <button class="button-85" onclick="mostrarCapa('rios')">Rios</button>
+      <button class="button-85" onclick="mostrarCapa('precipitaciones')">Precipitaciones</button>
+      <button class="button-85" onclick="mostrarCapa('ambientes')">Ambientes Protegidos</button>
+    </nav>
+  </header>
+
+  <div class="contenedor-mapa">
+    <img src="Imagenes/Mapa Formosa.svg" alt="Mapa de Formosa" id="mapa" class="capa-mapa">
+    <a href="https://es.wikipedia.org/wiki/Provincia_de_Formosa" target="_blank">
+      <div class="punto localidades" style="top: 72%; left: 70%;" onmouseover="mostrarTooltip('Formosa', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Piran%C3%A9" target="_blank">
+      <div class="punto localidades" style="top: 70%; left: 58%;" onmouseover="mostrarTooltip('Pirané', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Laish%C3%AD" target="_blank">
+      <div class="punto localidades" style="top: 79%; left: 65%;" onmouseover="mostrarTooltip('Laishí', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Pilcomayo" target="_blank">
+      <div class="punto localidades" style="top: 62%; left: 72%;" onmouseover="mostrarTooltip('Pilcomayo', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Pilag%C3%A1s" target="_blank">
+      <div class="punto localidades" style="top: 58%; left: 65%;" onmouseover="mostrarTooltip('Pilagás', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Pati%C3%B1o" target="_blank">
+      <div class="punto localidades" style="top: 55%; left: 48%;" onmouseover="mostrarTooltip('Patiño', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Bermejo_(Formosa)" target="_blank">
+      <div class="punto localidades" style="top: 41%; left: 33%;" onmouseover="mostrarTooltip('Bermejo', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Matacos" target="_blank">
+      <div class="punto localidades" style="top: 40%; left: 24%;" onmouseover="mostrarTooltip('Matacos', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+    <a href="https://es.wikipedia.org/wiki/Departamento_Ram%C3%B3n_Lista" target="_blank">
+      <div class="punto localidades" style="top: 28%; left: 24%;" onmouseover="mostrarTooltip('Ramón Lista', this)"
+        onmouseout="ocultarTooltip()"></div>
+    </a>
+
+
+  </div>
+  <div class="informacion climas">
+    <table border="1" cellpadding="8" cellspacing="0"
+      style="border-collapse: collapse; width: 100%; max-width: 800px; margin: auto; font-family: sans-serif;">
+      <thead>
+        <tr>
+          <th style="background:#8094d68c; color: white;">Localidad</th>
+          <th style="background:#8094d68c; color: white;">Clima predominante</th>
+          <th style="color: rainbow; background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00);">Color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Formosa</td>
+          <td>Subtropical muy húmedo: veranos muy calurosos con lluvias abundantes.</td>
+          <td style="background-color: #5BAF49; color: #fff; text-align: center;">Verde intenso</td>
+        </tr>
+        <tr>
+          <td>Pilcomayo</td>
+          <td>Ribereño con influjo del río: humedad elevada e inundaciones moderadas en crecidas.</td>
+          <td style="background-color: #8FD19E; color: #000; text-align: center;">Verde menta suave</td>
+        </tr>
+        <tr>
+          <td>Laishí</td>
+          <td>Transición semi-árido→subhúmedo: lluvias estacionales moderadas.</td>
+          <td style="background-color: #B7C775; color: #000; text-align: center;">Verde oliva claro</td>
+        </tr>
+        <tr>
+          <td>Pilagás</td>
+          <td>Semi-árido con lluvias concentradas en el verano austral.</td>
+          <td style="background-color: #E8C16A; color: #000; text-align: center;">Amarillo dorado</td>
+        </tr>
+        <tr>
+          <td>Pirané</td>
+          <td>Muy húmedo: inundaciones periódicas durante la temporada de lluvias.</td>
+          <td style="background-color: #4DB3B3; color: #fff; text-align: center;">Turquesa suave</td>
+        </tr>
+        <tr>
+          <td>Patiño</td>
+          <td>Subtropical húmedo moderado: precipitaciones regulares todo el año.</td>
+          <td style="background-color: #AED584; color: #000; text-align: center;">Verde claro</td>
+        </tr>
+        <tr>
+          <td>Bermejo</td>
+          <td>Subtropical húmedo: veranos lluviosos e inviernos templados.</td>
+          <td style="background-color: #8CCB6E; color: #000; text-align: center;">Verde medio</td>
+        </tr>
+        <tr>
+          <td>Ramón Lista</td>
+          <td>Muy húmedo con anegamientos estacionales en zonas bajas.</td>
+          <td style="background-color: #3BC7C1; color: #fff; text-align: center;">Aqua intenso</td>
+        </tr>
+        <tr>
+          <td>Matacos</td>
+          <td>Semi-árido extremo: precipitaciones bajas y esporádicas.</td>
+          <td style="background-color: #D9B382; color: #000; text-align: center;">Marrón claro</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="informacion rios">
+    <h2>Rios Formoseños</h2>
+    <p>La provincia de Formosa está atravesada por dos grandes ríos de la
+      cuenca del Plata —el Pilcomayo y el Paraguay— que marcan sus límites
+      oeste y este respectivamente. Ambos son fundamentales para el
+      ecosistema chaqueño, regulan inundaciones estacionales y sustentan una
+      rica biodiversidad además de actividades humanas como la pesca y la navegación.
+      A estos se suman afluentes menores y riachos (Pilagá, Teuco, Riacho Salado, entre otros)
+      que distribuyen las aguas de lluvia y mantienen los humedales de la región.</p>
+    <h3>Ríos principales</h3>
+    <h4>Río Pilcomayo</h4>
+    <p>El Pilcomayo, también llamado Araguay, nace en la cordillera de los Andes en Bolivia y recorre unos 1 590 km
+      hasta desembocar en el Paraguay. En su tramo inferior sirve de límite entre Bolivia–Argentina y luego
+      Argentina–Paraguay, incluyendo el departamento Pilcomayo de Formosa. Su caudal medio es de 400–600 m³/s y drena
+      una cuenca de 270 000 km². Presenta el curioso fenómeno de atarquinamiento, donde su propio sedimento obstruye el
+      cauce disminuyendo el caudal aguas abajo
+      .
+      El Parque Nacional Río Pilcomayo, declarado Sitio Ramsar, conserva esteros, sabanas y selvas de ribera que
+      dependen de las crecientes del Pilcomayo. Ocupa 51 889 ha en la frontera con Paraguay y Formosa, y su clima es
+      subtropical templado con abundantes lluvias estivales
+      Argentina.gob.ar
+      ​
+      Formosa hermosa
+      .</p>
+    <h4>Río Paraguay</h4>
+    <p>Con 2 695 km de longitud, el Paraguay es el principal afluente del Paraná y bordea la margen este de Formosa
+      durante unos 380 km. Nace en Brasil y, tras atravesar Paraguay, forma la frontera entre Paraguay y Argentina hasta
+      su confluencia en el Paraná frente a Corrientes. Su cuenca de 1 170 000 km² incluye humedales como el Gran
+      Pantanal y los Bañados de Otuquis, regulando el flujo del Pilcomayo al unirse a él cerca de Formosa.
+      En Formosa, el Paraguay favorece la pesca de surubí, pacú y bagres y es navegable todo el año para embarcaciones
+      de hasta 2 m de calado, constituyendo una arteria comercial clave.</p>
+  </div>
+
+  <div class="informacion precipitaciones">
+    <h2>🌧️ Precipitaciones en Formosa</h2>
+    <p>Las precipitaciones son más frecuentes en el norte y disminuyen hacia el oeste y sur de la provincia.</p>
+    <table>
+      <tr><th>Mes</th><th>Precipitación (mm)</th></tr>
+      <tr><td>Enero</td><td>210</td></tr>
+      <tr><td>Febrero</td><td>180</td></tr>
+      <tr><td>Marzo</td><td>160
+      </td></tr>
+      <tr><td>Abril</td><td>120</td></tr>
+      <tr><td>Mayo</td><td>80</td></tr>
+      <tr><td>Junio</td><td>60</td></tr>
+      <tr><td>Julio</td><td>25</td></tr>
+      <tr><td>Agosto</td><td>30</td></tr>
+      <tr><td>Septiembre</td><td>50
+      </td></tr>
+      <tr><td>Octubre</td><td>100</td></tr>
+      <tr><td>Noviembre</td><td>150</td></tr>
+      <tr><td>Diciembre</td><td>190</td></tr>
+    </table>
+  </div>
+  
+  <div class="informacion ambientes">
+    <h2>🌳 Áreas Naturales Protegidas</h2>
+    <ul>
+      <li><strong>Parque Nacional Río Pilcomayo</strong> – Sitio Ramsar con esteros y selvas de ribera.</li>
+      <li><strong>Reserva Natural Formosa</strong> – Protege especies nativas y ambientes chaqueños.</li>
+      <li><strong>Laguna Oca</strong> – Refugio de aves y humedales urbanos.</li>
+      <li><strong>Reserva de Biosfera Riacho Teuquito</strong> – Incluye ambientes del Chaco Seco y áreas de producción sostenible.</li>
+      <li><strong>Estancia Guaycolec</strong> – Reserva biológica privada con esteros, palmares y selvas en galería, destacada por su diversidad aviar.</li>
+      <li><strong>Reserva Hídrica Bañado La Estrella</strong> – Tercer humedal más grande de Sudamérica, importante para la conservación de aves y otras especies.</li>
+      <li><strong>Parque Provincial Laguna Hu</strong> – Protege ambientes del Chaco Húmedo, con diversidad de flora y fauna.</li>
+      <li><strong>Reserva de Uso Múltiple Agua Dulce</strong> – Área destinada a la conservación y uso sostenible de recursos naturales. </li>
+      <li><strong>Reserva de Protección Hídrica Laguna Yema</strong> – Protege recursos hídricos y ecosistemas asociados en la región del Chaco Seco.</li>
+    </ul>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+  <div class="info" id="info"></div>
+
+  <footer>Derechos Reservados Facundo Grossi</footer>
+  <script src="javascript.js"></script>
+</body>
+
+</html>
