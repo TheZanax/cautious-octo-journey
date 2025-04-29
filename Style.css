@@ -1,1 +1,400 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: rebeccapurple;
+  text-align: center;
+}
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, #3498db 33.3%, #ffffff 33.3% 66.6%, #3498db 66.6%);
+  color: rgb(226, 224, 88);
+  padding: 0px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+nav {
+  margin-top: 5px;
+}
+
+.contenedor-mapa {
+  position: relative;
+  display: inline-block;
+  margin-top: 25px; 
+}
+
+#mapa {
+  width: 80%;
+  height: auto;
+  max-width: 600px;
+  margin-left: 140px;
+  transition: opacity 0.6s ease;
+}
+
+.punto {
+  display: none;
+  width: 15px;
+  height: 15px;
+  margin-left: 75px;
+  background-color: rgb(245, 50, 50);
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+.informacion{
+  justify-content: center;
+  display: none;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.7), rgba(224,247,250,0.7));
+  margin-top: -480px;
+  margin-bottom: 116px;
+  margin-left: 10px;
+  height: 70%;
+  width: 30%;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+.informacion.localidad{
+  display: block;
+}
+.informacion.rios{
+  display: none;
+  color: black;
+  margin-top: -450px;
+  padding: 1px;
+  background-color: rgba(255, 255, 255, 0.486);
+  border-radius: 10px;
+ text-align: left;
+}
+
+.informacion.climas th,
+.informacion.rios h2 {
+  font-size: 1.1rem;
+}
+
+.informacion.climas th::before {
+  margin-right: 0.5rem;
+}
+.informacion.rios h2::before {
+  content: "🌊";
+  margin-right: 0.5rem;
+}
+
+.punto:hover {
+  transform: scale(1.4);
+}
+
+.punto.localidad {
+  display: block;
+}
+
+.tooltip {
+  position: absolute;
+  color: black;
+  background: linear-gradient(135deg, #267e79, #19c4f8);
+  border: 2px solid #888;
+  padding: 5px 10px;
+  display: none;
+  pointer-events: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  border-radius: 5px;
+  z-index: 1001;
+  transition: opacity 2.6s ease;
+}
+
+.info {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e0e0ff;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease, background-color 0.5s ease;
+}
+
+.info.show {
+  opacity: 1;
+}
+
+footer {
+  background-color: rgb(59, 112, 131);
+  padding: 10px;
+  color: white;
+  margin-top: 30px;
+}
+
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  margin: 5px;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.button-85:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffffff50;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+/* Estilos para nuevas capas */
+.informacion.precipitaciones {
+  display: none;
+  background: rgba(208, 232, 242, 0.7);
+  margin-top: -450px;
+  margin-left: 10px;
+  height: auto;
+  width: 30%;
+  color: #003049;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+}
+
+.informacion.ambientes {
+  display: none;
+  background: rgba(204, 255, 217, 0.8);
+  margin-top: -450px;
+  margin-left: 10px;
+  height: auto;
+  width: 30%;
+  color: #004d40;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+}
+
+
+.informacion table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.informacion table th,
+.informacion table td {
+  border: 1px solid #999;
+  padding: 6px 8px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.6);
+}
+
+.informacion table th {
+  background-color: rgba(0, 123, 255, 0.2);
+  font-weight: bold;
+}
+
+.informacion h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.informacion ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.informacion li {
+  margin-bottom: 0.4rem;
+}
+
+footer {
+  margin-top: 300px;
+}
+
+
+/* Responsive supongo??*/
+@media (max-width: 768px) {
+  html, body {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+.informacion.climas{
+  margin-top: -460px;
+}
+.informacion.precipitaciones {
+  display: none;
+  background: rgba(208, 232, 242, 0.7);
+  color: #003049;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+height: 90%;
+width: 80%;
+  text-align: left;
+  margin-right: 60px;
+}
+.informacion.ambientes {
+  display: none;
+  background: rgba(204, 255, 217, 0.8);
+  margin-top: -450px;
+  margin-left: 10px;
+  height: auto;
+  width: 30%;
+  color: #004d40;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  height: 90%;
+  width: 80%;
+    text-align: left;
+    margin-right: 60px;
+}
+  header {
+    height: auto;
+    padding: 8px 5px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin: 5px 0;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .button-85 {
+    font-size: 13px;
+    padding: 0.5em 1.5em;
+    margin: 5px;
+  }
+
+  .mapa-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 140px; /* <-- ahora sí, más separación del header */
+  }
+
+  .contenedor-mapa {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 430px;
+    position: relative;
+  }
+
+  #mapa {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* CUADROS DE INFORMACIÓN ABAJO DEL MAPA */
+  .informacion {
+    display: none; /* solo se muestra el que toque por JS */
+    position: static; /* importante: ya no flota sobre el mapa */
+    width: 95%;
+    margin: 20px auto;
+    font-size: 1rem;
+    padding: 16px;
+    height: auto !important;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.7), rgba(224,247,250,0.7));
+    z-index: 1;
+  }
+
+  .informacion table {
+    font-size: 0.95rem;
+  }
+
+  .punto {
+    margin-left: 10px;
+    transform: scale(1);
+  }
+  .puntoresponsive {
+    margin-right: 10000px;
+    color: black;
+  }
+
+  footer {
+    font-size: 13px;
+    padding: 12px;
+    margin-top: 30px;
+  }
+}
+
+
+
+html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
