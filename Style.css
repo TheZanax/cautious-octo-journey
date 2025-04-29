@@ -272,7 +272,35 @@ footer {
     margin: 0;
     overflow-x: hidden;
   }
-
+.informacion.climas{
+  margin-top: -460px;
+}
+.informacion.precipitaciones {
+  display: none;
+  background: rgba(208, 232, 242, 0.7);
+  color: #003049;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+height: 90%;
+width: 80%;
+  text-align: left;
+  margin-right: 60px;
+}
+.informacion.ambientes {
+  display: none;
+  background: rgba(204, 255, 217, 0.8);
+  margin-top: -450px;
+  margin-left: 10px;
+  height: auto;
+  width: 30%;
+  color: #004d40;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  height: 90%;
+  width: 80%;
+    text-align: left;
+    margin-right: 60px;
+}
   header {
     height: auto;
     padding: 8px 5px;
@@ -298,10 +326,19 @@ footer {
   }
 
   .mapa-contenido {
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0;
+    padding-top: 140px; /* <-- ahora sí, más separación del header */
+  }
+
+  .contenedor-mapa {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 430px;
+    position: relative;
   }
 
   #mapa {
@@ -312,16 +349,31 @@ footer {
     margin: 0 auto;
   }
 
+  /* CUADROS DE INFORMACIÓN ABAJO DEL MAPA */
   .informacion {
+    display: none; /* solo se muestra el que toque por JS */
+    position: static; /* importante: ya no flota sobre el mapa */
     width: 95%;
     margin: 20px auto;
     font-size: 1rem;
     padding: 16px;
+    height: auto !important;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.7), rgba(224,247,250,0.7));
+    z-index: 1;
   }
 
   .informacion table {
     font-size: 0.95rem;
+  }
+
+  .punto {
+    margin-left: 10px;
+    transform: scale(1);
+  }
+  .puntoresponsive {
+    margin-right: 10000px;
+    color: black;
   }
 
   footer {
@@ -329,13 +381,8 @@ footer {
     padding: 12px;
     margin-top: 30px;
   }
-
-  .punto {
-    width: 20px;
-    height: 20px;
-    transform: scale(1.1);
-  }
 }
+
 
 
 html, body {
